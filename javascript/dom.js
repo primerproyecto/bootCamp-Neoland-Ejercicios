@@ -43,7 +43,7 @@ $parrafo3.innerHTML = 'Soy dinámico';
 $contenedorDiv.appendChild($parrafo3);
 
 /* 2.5 Inserta en el h2 con la clase .fn-insert-here el texto 'Wubba Lubba dub dub'. */
-document.querySelector('h2.fn-insert-here').innerHTML = 'Wubba Lubba dub dub'
+//document.querySelector('h2.fn-insert-here').innerHTML = 'Wubba Lubba dub dub'
 
 /* 2.6 Basandote en el siguiente array crea una lista ul > li con los textos del array. */
 const apps = ['Facebook', 'Netflix', 'Instagram', 'Snapchat', 'Twitter'];
