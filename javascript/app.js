@@ -622,3 +622,126 @@ console.log(resultadoSoloUnParam)
 /* 1.3 Ejecuta esta función pasando dos parametros */
 const resultadoDosParam = primeraFuncion(3,4);
 console.log(resultadoDosParam);
+
+/* 2.1 En base al siguiente javascript, crea variables en base a las propiedades 
+del objeto usando object destructuring e imprimelas por consola. Cuidado, 
+no hace falta hacer destructuring del array, solo del objeto. */
+
+const game = {title: 'The last us 2', gender: ['action', 'zombie', 'survival'], year: 2020};
+
+const {title, year} = game;
+console.log(title,year)
+
+/* 2.2 En base al siguiente javascript, usa destructuring para crear 3 variables 
+llamadas fruit1, fruit2 y fruit3, con los valores del array. Posteriormente
+imprimelo por consola. */
+
+const fruits = ['Banana', 'Strawberry', 'Orange'];
+
+const [fruit1, fruit2, fruit3] = fruits;
+console.log(fruit1, fruit2, fruit3);
+
+/* 2.3 En base al siguiente javascript, usa destructuring para crear 2 
+variables igualandolo a la función e imprimiendolo por consola. ?? */
+
+const animalFunction = () => {
+    return {name: 'Bengal Tiger', race: 'Tiger'}
+};
+
+
+
+/* 2.4 En base al siguiente javascript, usa destructuring para crear las 
+variables name y itv con sus respectivos valores. Posteriormente crea 
+3 variables usando igualmente el destructuring para cada uno de los años 
+y comprueba que todo esta bien imprimiendolo. */
+
+const car = {name: 'Mazda 6', itv: [2015, 2011, 2020] }
+
+const { name, itv} = car;
+console.log('el name es ' + name + ' y el itv ' + itv);
+console.log(...itv)
+
+
+/* 3.1 Dado el siguiente array, crea una copia usando spread operators. */
+const pointsList3 = [32, 54, 21, 64, 75, 43];
+
+const arrayCopiado = [...pointsList3];
+console.log(arrayCopiado);
+
+/* 3.2 Dado el siguiente objeto, crea una copia usando spread operators. */
+const toy3 = {name: 'Bus laiyiar', date: '20-30-1995', color: 'multicolor'};
+ const { name3,date,color} = toy3;
+/* 3.3 Dado los siguientes arrays, crea un nuevo array juntandolos usando 
+spread operatos. */
+const pointsList = [32, 54, 21, 64, 75, 43];
+const pointsLis2 = [54,87,99,65,32];
+
+/* 3.4 Dado los siguientes objetos. Crea un nuevo objeto fusionando los dos 
+con spread operators. */
+const toy = {name: 'Bus laiyiar', date: '20-30-1995', color: 'multicolor'};
+const toyUpdate = {lights: 'rgb', power: ['Volar like a dragon', 'MoonWalk']}
+
+const newObject = {...toy, ...toyUpdate};
+console.log(newObject)
+
+/* 3.5 Dado el siguiente array. Crear una copia de él eliminando la posición 2 
+pero sin editar el array inicial. De nuevo, usando spread operatos. */
+const colors = ['rojo', 'azul', 'amarillo', 'verde', 'naranja'];
+const colorsCopi = [...colors];
+console.log(colorsCopi.splice(2,1));
+console.log(colorsCopi);
+
+
+/* 4.1 Dado el siguiente array, devuelve un array con sus nombres 
+utilizando .map(). */
+const users4 = [
+	{id: 1, name: 'Abel'},
+	{id:2, name: 'Julia'},
+	{id:3, name: 'Pedro'},
+	{id:4, name: 'Amanda'}
+];
+
+users.map(user => {
+  return user.name
+})
+
+/* 4.2 Dado el siguiente array, devuelve una lista que contenga los valores 
+de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que 
+empiece por 'A'. */
+const users5 = [
+	{id: 1, name: 'Abel'},
+	{id:2, name: 'Julia'},
+	{id:3, name: 'Pedro'},
+	{id:4, name: 'Amanda'}
+];
+users5.map(user => {
+  console.log(user.name);
+  if(user.name.startsWith('A')) {
+    user.name = 'Anacleto';
+  }
+})
+
+/* 4.3 Dado el siguiente array, devuelve una lista que contenga los valores 
+de la propiedad .name y añade al valor de .name el string ' (Visitado)' 
+cuando el valor de la propiedad isVisited = true. */
+const cities = [
+	{isVisited:true, name: 'Tokyo'}, 
+	{isVisited:false, name: 'Madagascar'},
+	{isVisited:true, name: 'Amsterdam'}, 
+	{isVisited:false, name: 'Seul'}
+];
+
+cities.map(ciudad => {
+  if(ciudad.isVisited){
+    ciudad.name += ' (Visitado)';
+  }
+})
+console.log(cities);
+
+/* 5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+con los valores que sean mayor que 18 */
+const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const agesOver18 = ages.filter(item => item > 18 ? true : false);
+console.log(agesOver18)
+console.log(ages)
