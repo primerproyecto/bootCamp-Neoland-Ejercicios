@@ -744,4 +744,76 @@ const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
 
 const agesOver18 = ages.filter(item => item > 18 ? true : false);
 console.log(agesOver18)
-console.log(ages)
+console.log(ages);
+
+/* 5.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+con los valores que sean par. */
+const ages2 = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const agespares = ages2.filter(item => {
+ return item % 2 ? false : true
+})
+console.log(agespares);
+
+/* 5.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+con los streamers que tengan el gameMorePlayed = 'League of Legends'. */
+
+const streamers = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'}, 
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const streamersLegends = streamers.filter(item => {
+  return item.gameMorePlayed === 'League of Legends' ? true : false;
+});
+console.log(streamersLegends);
+
+/* 5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos 
+usar la funcion .includes() para la comprobación. */
+
+const arrayWithU = streamers.filter(stremer => stremer.name.includes('Legends') ? true : false);
+console.log(arrayWithU);
+
+
+/* 5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan 
+el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion 
+.includes() para la comprobación.
+Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando 
+.age sea mayor que 35. */
+
+const arrayWithLegends = streamers.filter( stremer => {
+  if(stremer.age > 15){
+    stremer.gameMorePlayed.toUpperCase();
+  }
+ return stremer.gameMorePlayed.includes('Legends') ? true : false
+});
+console.log(arrayWithLegends);
+
+
+/* 6.1 Dado el siguiente array, usa .find() para econtrar el número 100.*/
+const numbers = [32, 21, 63, 95, 100, 67, 43]; 
+
+const n50 = numbers.find( number => number == 100);
+console.log(n50);
+
+
+/* 6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010. */
+const movies6 = [
+	{title: 'Madagascar', stars: 4.5, date: 2015},
+	{title: 'Origen', stars: 5, date: 2010},
+	{title: 'Your Name', stars: 5, date: 2016}
+];
+
+const pelicula2010 = movies6.find(item => {
+  return item.date === 2010 ? item : ``;
+})
+
+
+// no entiendo esta ...porque pelicula2011 sigue devolviendo el objeto {} ??
+const pelicula2011 = movies6.find(item => {
+  return item.date === 2010 ? 'La película es' + item.title : ``;
+})
+console.log(pelicula2011);
