@@ -19,10 +19,6 @@ const $botonReseteo = document.querySelector('#botonReseteo');
 const $input = document.querySelector('#texto');
 const $p = document.createElement('p');
 const baseUrl = 'https://api.nationalize.io/';
-
-
-
-
 $botonEnvio.addEventListener('click', function(e){
   e.preventDefault();
   fetch( baseUrl + '?name=' + $input.value)
@@ -31,22 +27,26 @@ $botonEnvio.addEventListener('click', function(e){
   })
   .then(data => {
     const { country, name } = data;
-
     for (let index = 0; index < country.length; index++) {
       const pais = country[index].country_id;
       const porcentaje = country[index].probability * 100 + ' %';
       const $p = document.createElement('p');
       const $botonX = document.createElement('button');
-      $botonX.innerHTML = 'submit';
+      $botonX.innerHTML = 'X';
+      $botonX.addEventListener('click', function(e){
+        e.preventDefault();
+        $botonX.parentElement.classList.add('fading');
+        setTimeout(() => {
+          $botonX.parentElement.remove(); 
+        }, 250);
+        
+      });
       $p.classList.remove('fading');
-      $p.innerHTML += `El nombre ${name} tiene un ${porcentaje} de ser del país ${pais}`;
-      
-      $p.appendChild($botonX );
-
+      $p.innerHTML += `El nombre ${name} tiene un ${parseInt(porcentaje).toFixed()}% de ser del país ${pais} `;
+      $p.appendChild($botonX);
+      $botonX.classList.add('botonX');
       document.body.append($p);
     }
-
-    console.log(country[0].country_id);
   });
 })
 
@@ -58,7 +58,7 @@ $botonReseteo.addEventListener('click', function(e){
     pes.classList.add('fading');
     setTimeout(() => {
       pes.remove();
-    }, 1000);
+    }, 250);
   }
 })
 
@@ -72,7 +72,21 @@ de MZ. */
 de los p que hayas insertado y que si el usuario hace click en este botón 
 eliminemos el parrafo asociado. */
 
+$botonReseteo.addEventListener('click', function(e){
+  e.preventDefault();
+  console.log('que es e', e)
+})
 
+/* 2.1 Convierte la siguiente promesa para esperar a ejecutar el console usando 
+async-await. */
+const runTimeOut = () => {
+    const promise = new Promise((resolve) => {
+        setTimeout(function () {
+            resolve();
+        }, 2000);
+    })
 
+    promise.then(() => {console.log('Time out!')})
+};
   
-  
+runTimeOut()
